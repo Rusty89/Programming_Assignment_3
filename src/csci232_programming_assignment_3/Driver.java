@@ -122,12 +122,37 @@ public class Driver {
     
     public static void Kruskals(String [][] adjacencyMatrix) {
     	
-        String [][] kruskals= new String[adjacencyMatrix.length-1][adjacencyMatrix[0].length];
+        int [][] kruskals= new int[adjacencyMatrix.length-1][adjacencyMatrix[0].length];
     	for (int i = 1; i<adjacencyMatrix.length;i++){
             for (int j=0; j<adjacencyMatrix[1].length; j++){
-                kruskals[i-1][j] = adjacencyMatrix[i][j];
+                kruskals[i-1][j] = Integer.parseInt(adjacencyMatrix[i][j]);
             }
         }
+    	
+    	int [] mst = new int[kruskals.length];
+    	int [] mst_candidate = new int[3];
+    	
+    	for (int i=1; i < kruskals[0].length; i++) {
+    		mst_candidate[0] = kruskals[0][0];
+    		mst_candidate[1] = 0;
+    		mst_candidate[2] = 0;
+	    	for (int j=0; j < kruskals.length; j++) {
+	    		for (int k=0; k < kruskals[0].length; k++) {
+	    			
+	    			if (kruskals[j][k] > mst_candidate[0]) {
+	    				mst_candidate[0] = kruskals[j][k];
+	    				mst_candidate[1] = j;
+	    				mst_candidate[2] = k;
+	    			}
+	    			
+	    		}
+	    		
+	    	}
+	    	
+	    	mst[i] = Integer.parseInt(adjacencyMatrix[mst_candidate[1]][mst_candidate[2]]);
+	    	
+	    	
+    	}
     	
     }
     
