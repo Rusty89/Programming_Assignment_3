@@ -26,7 +26,8 @@ public class Driver {
             
         //calls the Floyd_Worshalls function    
         Floyd_Worshalls(readFiles("input"));
-            
+        
+        Kruskals(readFiles("undirectedInput"));
         
         
     }
@@ -117,6 +118,17 @@ public class Driver {
             }   
         }
         
+    }
+    
+    public static void Kruskals(String [][] adjacencyMatrix) {
+    	
+        String [][] kruskals= new String[adjacencyMatrix.length-1][adjacencyMatrix[0].length];
+    	for (int i = 1; i<adjacencyMatrix.length;i++){
+            for (int j=0; j<adjacencyMatrix[1].length; j++){
+                kruskals[i-1][j] = adjacencyMatrix[i][j];
+            }
+        }
+    	
     }
     
     public static void printMatrix(String [][] input, String [] header){
