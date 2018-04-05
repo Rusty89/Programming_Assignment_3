@@ -33,11 +33,11 @@ public class Driver {
 
                 while ((line = reader.readLine()) != null) {
 
-                    count1= line.length();
-                    count2++;                    
+                    count2= line.split(",").length;
+                    count1++;                    
                 }
                 
-                inputArray= new String[count1-4][count2-1];
+                inputArray= new String[count1][count2];
                 count1=0;
                 count2=0;
                 reader.close();
@@ -53,10 +53,8 @@ public class Driver {
                 while ((line = reader.readLine()) != null) {
                     String [] splitLines=line.split(",");
                     
+                    inputArray[count1]= splitLines;
                     
-                    for(int i=0; i<splitLines.length;i++){
-                        inputArray[count1][i]= splitLines[i];
-                    }
                     count1++;
                     
                     
