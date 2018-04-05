@@ -22,10 +22,23 @@ public class Driver {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+            
+        //calls the Floyd_Worshalls function    
+        Floyd_Worshalls(readFiles("input"));
+            
+        
+        
+    }
+    
+    
+    
+    
+    public static String[][] readFiles(String inputFileName){
         int count1=0;
         int count2=0;
         String inputArray[][]=null;
-        Path inputFile = Paths.get("input.txt");
+        Path inputFile = Paths.get(inputFileName+".txt");
 
             try (InputStream in = Files.newInputStream(inputFile);
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
@@ -61,21 +74,12 @@ public class Driver {
                     
                 }
                 reader.close();
+                
             } catch (IOException x) {
                 System.err.println(x);
             }
-            
-        //calls the Floyd_Worshalls function    
-        Floyd_Worshalls(inputArray);
-            
-        
-        
+        return inputArray;
     }
-    
-    
-    
-    
-    
     
     public static void Floyd_Worshalls(String [][] adjacencyMatrix){
         
@@ -110,7 +114,7 @@ public class Driver {
                     
                 }
                 printMatrix(fWorshalls, adjacencyMatrix[0]);
-            }          
+            }   
         }
         
     }
