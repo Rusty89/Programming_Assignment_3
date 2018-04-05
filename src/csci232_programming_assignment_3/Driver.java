@@ -81,6 +81,13 @@ public class Driver {
         return inputArray;
     }
     
+    
+    public static void Prims(String[][] adjacencyMatrix)
+    {
+        
+    }
+    
+    
     public static void Floyd_Worshalls(String [][] adjacencyMatrix){
         
         String [][] fWorshalls= new String[adjacencyMatrix.length-1][adjacencyMatrix[0].length];
