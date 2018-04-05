@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 /**
  *
  * Authors: Rusty Clayton, Kamran Hetke, Derek Jacobson
- * Date: 4/5/2018
+ * Date: 4/6/2018
  * Overview: takes an input file adjacency matrix and implements Prim's MST, Kruskals MST and Floyd Warshals algorithm
  * 
  */
