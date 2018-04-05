@@ -3,8 +3,10 @@ package csci232_programming_assignment_3;
 
 /**
  *
- * @author Rusty Clayton, Kamran Hetke, Derek Jacobson
- * Description: takes an input file adjacency matrix and implements Prim's MST, Kruskals MST and Floyd Marshalls algorithm
+ * Authors: Rusty Clayton, Kamran Hetke, Derek Jacobson
+ * Date: 4/5/2018
+ * Overview: takes an input file adjacency matrix and implements Prim's MST, Kruskals MST and Floyd Warshals algorithm
+ * 
  */
 public class Driver {
 
