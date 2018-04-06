@@ -27,6 +27,8 @@ public class Driver {
         //calls the Floyd_Worshalls function    
         Floyd_Worshalls(readFiles("input"));
             
+        //calls the Kruskals algorithm
+        Kruskals(readFiles("undirectedInput"));
         
         
     }
@@ -80,6 +82,55 @@ public class Driver {
             }
         return inputArray;
     }
+    
+    
+    
+    public static void Kruskals(String [][] adjacencyMatrix){
+
+        String [][] Kruskals= new String[adjacencyMatrix.length-1][adjacencyMatrix[0].length];
+        //copies adjancey matrix
+        for (int i = 1; i<adjacencyMatrix.length;i++){
+            for (int j=0; j<adjacencyMatrix[1].length; j++){
+                Kruskals[i-1][j] = adjacencyMatrix[i][j];
+            }
+        }
+        
+        
+        int lowest= Integer.MAX_VALUE;
+        int letter1=0;
+        int letter2=0;
+        
+        String tree="";
+        
+        while(tree.length()<=(Kruskals.length-1)*2){
+            for(int i = 0; i<Kruskals.length; i++){
+                for(int j = 0; j<Kruskals.length; j++){
+                    if (Kruskals[i][j].charAt(0) !='∞' && Kruskals[i][j].charAt(0)!='0'){
+                        if(Integer.parseInt(Kruskals[i][j])<=lowest){
+                            lowest=Integer.parseInt(Kruskals[i][j]);
+                            letter1=i;
+                            letter2=j;
+                            
+                        }
+                    }
+                }
+            }
+            
+            
+            
+            tree+=adjacencyMatrix[0][letter1]+adjacencyMatrix[0][letter2];
+            lowest=Integer.MAX_VALUE;
+            
+            Kruskals[letter1][letter2]="0";
+            Kruskals[letter2][letter1]="0";
+            System.out.println(tree);
+        }
+        
+        
+        
+        
+    }
+    
     
     public static void Floyd_Worshalls(String [][] adjacencyMatrix){
         
