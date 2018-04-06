@@ -30,6 +30,9 @@ public class Driver {
         //calls the Prim function
         Prim(readFiles("undirectedInput"));
         
+
+        //calls kruskals
+        Kruskals(readFiles("undirectedInput"));
         
     }
     
@@ -251,7 +254,7 @@ public class Driver {
         System.out.println("\n\n");
     }
     
-        public static void Kruskals(String [][] adjacencyMatrix) {
+    public static void Kruskals(String [][] adjacencyMatrix) {
     	
         int [][] kruskals= new int[adjacencyMatrix.length-1][adjacencyMatrix[0].length];
     	for (int i = 1; i<adjacencyMatrix.length;i++){
@@ -289,7 +292,8 @@ public class Driver {
 	    	
 	    	mst[i] = adjacencyMatrix[0][mst_candidate[1]] + adjacencyMatrix[0][mst_candidate[2]];
 	    	kruskals[mst_candidate[1]][mst_candidate[2]] = 0;
-	    	kruskals[mst_candidate[2]][mst_candidate[1]] = 0;	    	
+	    	kruskals[mst_candidate[2]][mst_candidate[1]] = 0;
+                
     	}
     	
     	printMST(mst);
