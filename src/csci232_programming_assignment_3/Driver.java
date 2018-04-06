@@ -157,7 +157,7 @@ public class Driver {
             
             
         }
-        print_Prim(parent, prim_Alg.length, prim_Alg);  //Calls the print_Prim function 
+        print_Prim(parent, prim_Alg.length, prim_Alg, adjacencyMatrix);  //Calls the print_Prim function 
     }
     
     //Function to find the vertex that has the minimum key from vertices not in the minimum spanning tree
@@ -181,13 +181,16 @@ public class Driver {
     
     
     //Fucntion to print the edge weights from the Prim algorithm function
-    public static void print_Prim(int parent[], int n, int graph[][])
+    public static void print_Prim(int parent[], int n, int graph[][], String matrix[][])
     {
         System.out.println("Edge Weight");
         
+        
+        
         for(int i = 1 ; i < n; i++)
         {
-            System.out.println(parent[i]+ " - " + i + " " + graph[i][parent[i]]);
+            
+            System.out.println(matrix[0][parent[i]]+ " - " + matrix[0][i] + " " + graph[i][parent[i]]);
         }
     }
     
