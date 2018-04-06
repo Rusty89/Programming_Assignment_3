@@ -105,7 +105,7 @@ public class Driver {
         {
             for(int j = 0; j < prim_String.length; j++)
             {
-                if(prim_String[i][j] == "∞")
+                if(prim_String[i][j].charAt(0) == '∞')
                 {
                     prim_Alg[i][j] = 99999;
                 }
@@ -146,7 +146,7 @@ public class Driver {
             
             treeSet[u] = true;  // Add that minimum key value to the tree set
             
-            for(int j = 0; j < prim_Alg.length; i++)
+            for(int j = 0; j < prim_Alg.length; j++)
             {
                 if(prim_Alg[u][j] != 0 && treeSet[j] == false && prim_Alg[u][j] < key[j])
                 {
