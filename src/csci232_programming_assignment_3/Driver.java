@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.*;
 
 /**
  *
@@ -27,14 +28,14 @@ public class Driver {
         //calls the Floyd_Worshalls function    
         Floyd_Worshalls(readFiles("input"));
         
+        //calls the Kruskal's algorithm function
+        new Kruskals(readFiles("undirectedInput"));
+
         //calls the Prim function
         Prim(readFiles("undirectedInput"));
         
         
     }
-    
-    
-    
     
     public static String[][] readFiles(String inputFileName){
         int count1=0;
@@ -231,6 +232,14 @@ public class Driver {
             }   
         }
         
+    }
+    
+    public static void printMST(String[] mst) {
+    	
+    	for(int i = 0; i < mst.length; i++) {
+    		System.out.println(mst[i]);
+    	}
+    	
     }
     
     public static void printMatrix(String [][] input, String [] header){
