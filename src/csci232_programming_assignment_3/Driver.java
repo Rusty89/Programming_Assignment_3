@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.*;
 
 /**
  *
@@ -27,13 +28,10 @@ public class Driver {
         //calls the Floyd_Worshalls function    
         Floyd_Worshalls(readFiles("input"));
         
-        Kruskals(readFiles("undirectedInput"));
+        new Kruskals(readFiles("undirectedInput"));
         
         
     }
-    
-    
-    
     
     public static String[][] readFiles(String inputFileName){
         int count1=0;
@@ -118,51 +116,6 @@ public class Driver {
             }   
         }
         
-    }
-    
-    public static void Kruskals(String [][] adjacencyMatrix) {
-    	
-        int [][] kruskals= new int[adjacencyMatrix.length-1][adjacencyMatrix[0].length];
-    	for (int i = 1; i<adjacencyMatrix.length;i++){
-            for (int j=0; j<adjacencyMatrix[1].length; j++){
-            	if (adjacencyMatrix[i][j].charAt(0) == '∞') {
-                	kruskals[i-1][j] = 0;
-                } else {
-                	kruskals[i-1][j] = Integer.parseInt(adjacencyMatrix[i][j]);
-                }
-            }
-        }
-    	
-    	String [] mst = new String[kruskals.length-1];
-    	int [] mst_candidate = new int[3];
-    	
-    	for (int i=0; i < kruskals[0].length-1; i++) {
-    		mst_candidate[0] = kruskals[0][0];
-    		mst_candidate[1] = 0;
-    		mst_candidate[2] = 0;
-	    	for (int j=0; j < kruskals.length; j++) {
-	    		for (int k=0; k < kruskals[0].length; k++) {
-	    			if (mst_candidate[0] == 0) {
-	    				mst_candidate[0] = kruskals[j][k];
-	    				mst_candidate[1] = j;
-	    				mst_candidate[2] = k;
-	    			} else if (kruskals[j][k] < mst_candidate[0] && kruskals[j][k] != 0) {
-	    				mst_candidate[0] = kruskals[j][k];
-	    				mst_candidate[1] = j;
-	    				mst_candidate[2] = k;
-	    			}
-	    			
-	    		}
-	    		
-	    	}
-	    	
-	    	mst[i] = adjacencyMatrix[0][mst_candidate[1]] + adjacencyMatrix[0][mst_candidate[2]];
-	    	kruskals[mst_candidate[1]][mst_candidate[2]] = 0;
-	    	kruskals[mst_candidate[2]][mst_candidate[1]] = 0;	    	
-    	}
-    	
-    	printMST(mst);
-    	
     }
     
     public static void printMST(String[] mst) {
